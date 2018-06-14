@@ -11,4 +11,8 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/error', function(req, res, next) {
+  res.send('The job is invalid.');
+});
+
 module.exports = router;
