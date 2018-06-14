@@ -1,2 +1,22 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div>
+    <table>
+        <thead>
+            <tr>
+                        <td>Position<br /><span>Company</span></td>
+                        <td>Location</td>
+                        <td>Language</td>
+                        <td>Job ID</td>
+                        <td>Actions</td>
+            </tr>
+        </thead>
+                {{#each jobs}}
+                    <tr>
+                        <td>{{this.position}}<br /><span>{{this.company}}</span></td>
+                        <td>{{this.location}}</td>
+                        <td>{{this.language}}</td>
+                        <td>{{this.job_id}}</td>
+                        <td><a href="/books/delete/{{this.job_id}}"><span class="glyphicon glyphicon-remove-circle"></span></td>
+                    </tr>
+                {{/each}}
+    </table>
+</div>
