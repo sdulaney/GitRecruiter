@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
-let models  = require('../models');
+let express = require('express');
+let router = express.Router();
+let models = require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  models.Job.findAll().then(function (results) {
+  models.Job.findAll().then(function(results) {
     res.render('index', {
-      jobs: results
+      jobs: results,
     });
   });
 });

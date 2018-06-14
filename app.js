@@ -1,16 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var jobsRouter = require('./routes/jobs');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
+let jobsRouter = require('./routes/jobs');
 
-var app = express();
+let app = express();
 
-let models  = require('./models');
+let models = require('./models');
 
 // Creates database table for Job
 models.Job.sync({force: true}).then(function() {
@@ -21,7 +21,7 @@ models.Job.sync({force: true}).then(function() {
   for (let i = 0; i < jobs.length; i++) {
       console.log(jobs[i].position + ', ' + jobs[i].company);
   }
-})
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +29,7 @@ app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
