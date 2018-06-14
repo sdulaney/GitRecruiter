@@ -9,41 +9,18 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-// Database methods
-let Sequelize = require('sequelize');
-let sequelize = new Sequelize('mysql', 'root', '33YJ7DAdiBnaWi9r', {
-    host: 'localhost',
-    dialect: 'mysql',
-});
-
-// Database setup methods
-const Job = sequelize.define('job', {
-  position: {type: Sequelize.STRING},
-  company: {type: Sequelize.STRING},
-  location: {type: Sequelize.STRING},
-  job_id: {type: Sequelize.STRING},
-  language: {type: Sequelize.STRING},
-});
+let models  = require('./models');
 
 // Creates database table for Job
-Job.sync({force: true}).then(function() {
+models.Job.sync({force: true}).then(function() {
   let initialJobs = initJobs();
-  return Job.bulkCreate(initialJobs);
+  return models.Job.bulkCreate(initialJobs);
 }).then(function(jobs) {
   // After inserting all initial books into database, loop over and print out the titles
   for (let i = 0; i < jobs.length; i++) {
       console.log(jobs[i].position + ', ' + jobs[i].company);
   }
 })
-
-sequelize
-  .authenticate()
-  .then(function() {
-      console.log('Connection has been established successfully.');
-  })
-  .catch(function(err) {
-      console.error('Unable to connect to the database:', err);
-  });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
