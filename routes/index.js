@@ -11,6 +11,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/post-job', function(req, res, next) {
+  res.render('post-job');
+});
+
 router.get('/error', function(req, res, next) {
   res.send('The job is invalid.');
 });
