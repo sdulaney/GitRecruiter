@@ -1,18 +1,4 @@
 <div>
-    <h2>Add a Job</h2>
-    <form method="POST" action="/jobs/add">
-        <input type="text" id="addjob_position" name="position" placeholder="Position" />
-        <input type="text" id="addjob_company" name="company" placeholder="Company" />
-        <input type="text" id="addjob_location" name="location" placeholder="Location" />
-        <input type="text" id="addjob_language" name="language" placeholder="Language" />
-        <input type="text" id="addjob_job_id" name="job_id" placeholder="Job ID" />
-
-        <input type="submit" value="Add Job" />
-        <input type="button" value="Clear" onClick="clearForm()" />
-    </form>
-</div>
-
-<div>
     <table>
         <thead>
             <tr>
@@ -34,13 +20,3 @@
                 {{/each}}
     </table>
 </div>
-
-<script type="text/javascript">
-    function clearForm() {
-        document.getElementById("addjob_position").value = "";
-        document.getElementById("addjob_company").value = "";
-        document.getElementById("addjob_location").value = "";
-        document.getElementById("addjob_language").value = "";
-        document.getElementById("addjob_job_id").value = "";
-    }
-</script>
