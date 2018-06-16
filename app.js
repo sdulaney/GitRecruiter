@@ -5,6 +5,7 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let expressValidator = require('express-validator');
 let flash = require('connect-flash');
+let session = require('express-session');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -34,6 +35,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Express Session
+app.use(session({
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
+}));
 
 // Express Validator
 app.use(expressValidator({
