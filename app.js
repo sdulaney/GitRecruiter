@@ -3,6 +3,7 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let expressValidator = require('express-validator');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -32,6 +33,24 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+  let namespace = param.split('.');
+  let root = namespace.shift();
+  let formParam = root;
+
+  while (namespace.length) {
+    formParam += '[' + namespace.shift() + ']';
+  }
+  return {
+    param: formParam,
+    msg: msg,
+    value: value,
+  };
+  },
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
