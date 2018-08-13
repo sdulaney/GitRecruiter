@@ -26,6 +26,16 @@ models.Job.sync({force: true}).then(function() {
   }
 });
 
+models.User.sync()
+.then(() => models.User.create({
+  email: 'stewart.dulaney@gmail.com',
+  github_handle: 'sdulaney',
+  password: '1234',
+}))
+.then((newUser) => {
+  console.log(newUser.toJSON());
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
