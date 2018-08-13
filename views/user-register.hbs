@@ -1,5 +1,10 @@
 <div>
     <h2 class="page-header">Register</h2>
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-danger">{{msg}}</div>
+        {{/each}}
+    {{/if}}
     <form method="POST" action="/users/register">
         <div class="form-group">
             <label>Email</label>
@@ -11,11 +16,11 @@
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input type="text" class="form-control" id="user_register_password" name="password" placeholder="Password" />
+            <input type="password" class="form-control" id="user_register_password" name="password" placeholder="Password" />
         </div>
         <div class="form-group">
             <label>Confirm Password</label>
-            <input type="text" class="form-control" id="user_register_confirm_password" name="confirm_password" placeholder="Confirm Password" />
+            <input type="password" class="form-control" id="user_register_confirm_password" name="confirm_password" placeholder="Confirm Password" />
         </div>
         
         <button type="submit" class="btn btn-primary">Submit</button>
