@@ -26,11 +26,16 @@ models.Job.sync({force: true}).then(function() {
   }
 });
 
-models.User.sync()
-.then(() => models.User.create({
+models.Users.sync({force: true})
+.then(() => models.Users.create({
   email: 'stewart.dulaney@gmail.com',
-  github_handle: 'sdulaney',
   password: '1234',
+  name: 'Stewart Dulaney',
+  gh_handle: 'sdulaney',
+  gh_avatar_url: 'https://avatars2.githubusercontent.com/u/10219100?v=4',
+  gh_location: 'Los Angeles, CA',
+  gh_blog: 'https://www.stewartdulaney.com',
+  gh_public_repos: 88,
 }))
 .then((newUser) => {
   console.log(newUser.toJSON());
