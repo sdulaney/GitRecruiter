@@ -2,4 +2,4 @@ extends: google
 parserOptions:
   ecmaVersion: 6
 rules:
-  max-len: ["error", { "ignoreComments": true }]
+  max-len: off
