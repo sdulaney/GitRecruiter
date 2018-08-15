@@ -19,6 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     behance: {type: DataTypes.STRING},
     latitude: {type: DataTypes.STRING},
     longitude: {type: DataTypes.STRING},
+  }, {
+    underscored: true,
   });
 
   return Users;
