@@ -37,7 +37,7 @@ router.post('/register', function(req, res, next) {
           throw err;
         }
 
-        models.User.create({
+        models.Users.create({
           email: email,
           github_handle: githubHandle,
           password: hash,
