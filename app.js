@@ -128,4 +128,23 @@ function initJobs() {
   return initialJobs;
 }
 
+/**
+ * Returns seed data for the Companies database table.
+ * @return {array} companies seed data
+ */
+function initCompanies() {
+  let initialCompanies = [
+      {name: 'Snap Inc.'},
+      {name: 'Microsoft'},
+      {name: 'Amazon'},
+      {name: 'Facebook'},
+      {name: 'Google'},
+      {name: 'Apple'},
+      {name: 'Hulu'},
+      {name: 'Symantec'},
+  ];
+
+  return initialCompanies;
+}
+
 module.exports = app;
