@@ -8,5 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
   });
 
+  UserLanguages.associate = function(models) {
+    models.user_languages.belongsTo(models.users, {foreignKey: 'user_id'});
+  };
+
   return UserLanguages;
 };

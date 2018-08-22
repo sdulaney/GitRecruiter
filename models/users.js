@@ -23,5 +23,9 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
   });
 
+  Users.associate = function(models) {
+    models.users.hasMany(models.user_languages, {foreignKey: 'user_id'});
+  };
+
   return Users;
 };
