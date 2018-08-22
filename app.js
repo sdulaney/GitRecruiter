@@ -41,6 +41,8 @@ models.Users.sync({force: true})
   // console.log(newUser.toJSON());
 });
 
+models.user_languages.sync({force: true});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
