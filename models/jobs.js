@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  let Jobs = sequelize.define('Jobs', {
+  let Jobs = sequelize.define('jobs', {
     jobid: {type: DataTypes.INTEGER.UNSIGNED, allowNull: false, primaryKey: true, autoIncrement: true},
     companyid: {type: DataTypes.INTEGER.UNSIGNED, allowNull: false},
     position: {type: DataTypes.STRING, allowNull: false},

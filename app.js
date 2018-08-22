@@ -16,9 +16,9 @@ let app = express();
 let models = require('./models');
 
 // Creates database table for Job
-models.Jobs.sync({force: true}).then(function() {
+models.jobs.sync({force: true}).then(function() {
   let initialJobs = initJobs();
-  return models.Jobs.bulkCreate(initialJobs);
+  return models.jobs.bulkCreate(initialJobs);
 }).then(function(jobs) {
   // After inserting all initial books into database, loop over and print out the titles
   // for (let i = 0; i < jobs.length; i++) {
@@ -26,8 +26,8 @@ models.Jobs.sync({force: true}).then(function() {
   // }
 });
 
-models.Users.sync({force: true})
-.then(() => models.Users.create({
+models.users.sync({force: true})
+.then(() => models.users.create({
   email: 'stewart.dulaney@gmail.com',
   password: '1234',
   name: 'Stewart Dulaney',
