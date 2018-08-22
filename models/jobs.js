@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   let Jobs = sequelize.define('jobs', {
-    jobid: {type: DataTypes.INTEGER.UNSIGNED, allowNull: false, primaryKey: true, autoIncrement: true},
+    job_id: {type: DataTypes.INTEGER.UNSIGNED, allowNull: false, primaryKey: true, autoIncrement: true},
     companyid: {type: DataTypes.INTEGER.UNSIGNED, allowNull: false},
     position: {type: DataTypes.STRING, allowNull: false},
     language: {type: DataTypes.STRING, allowNull: false},
