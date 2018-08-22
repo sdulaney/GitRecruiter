@@ -21,9 +21,9 @@ models.Jobs.sync({force: true}).then(function() {
   return models.Jobs.bulkCreate(initialJobs);
 }).then(function(jobs) {
   // After inserting all initial books into database, loop over and print out the titles
-  for (let i = 0; i < jobs.length; i++) {
-      console.log(jobs[i].toJSON());
-  }
+  // for (let i = 0; i < jobs.length; i++) {
+  //     console.log(jobs[i].toJSON());
+  // }
 });
 
 models.Users.sync({force: true})
@@ -38,7 +38,7 @@ models.Users.sync({force: true})
   gh_public_repos: 88,
 }))
 .then((newUser) => {
-  console.log(newUser.toJSON());
+  // console.log(newUser.toJSON());
 });
 
 // view engine setup
