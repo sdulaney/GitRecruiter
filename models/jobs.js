@@ -2,7 +2,6 @@
 module.exports = (sequelize, DataTypes) => {
   let Jobs = sequelize.define('jobs', {
     job_id: {type: DataTypes.INTEGER.UNSIGNED, allowNull: false, primaryKey: true, autoIncrement: true},
-    companyid: {type: DataTypes.INTEGER.UNSIGNED, allowNull: false},
     position: {type: DataTypes.STRING, allowNull: false},
     language: {type: DataTypes.STRING, allowNull: false},
     framework: {type: DataTypes.STRING, allowNull: false},
@@ -19,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Jobs.associate = function(models) {
     models.jobs.hasMany(models.user_job_matches, {foreignKey: 'job_id'});
+    models.jobs.belongsTo(models.companies, {foreignKey: 'company_id'});
   };
 
   return Jobs;
