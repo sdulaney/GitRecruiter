@@ -4,7 +4,7 @@ let models = require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  models.Job.findAll().then(function(results) {
+  models.jobs.findAll().then(function(results) {
     res.render('index', {
       jobs: results,
     });
