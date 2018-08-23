@@ -17,5 +17,9 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
   });
 
+  Jobs.associate = function(models) {
+    models.jobs.hasMany(models.user_job_matches, {foreignKey: 'job_id'});
+  };
+
   return Jobs;
 };
