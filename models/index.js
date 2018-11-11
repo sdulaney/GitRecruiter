@@ -32,6 +32,7 @@ Object.keys(db).forEach((modelName) => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+db.syncGitHubData = syncGitHubData;
 db.sequelize.sync({force: true})
 .then(function() {
   db['users'].create({
@@ -86,6 +87,39 @@ function initCompanies() {
   ];
 
   return initialCompanies;
+}
+
+/**
+ * Retrieves data about a user's GitHub account and writes it to the database.
+ * @param {string} username - The GitHub username.
+ * @param {number} userid - The user's id in the GitRecruiter database.
+ */
+function syncGitHubData(username, userid) {
+  /* TODO */
+}
+
+/**
+ * Retrieves publicly available information about the specified GitHub account.
+ * @param {string} username - The GitHub username.
+ */
+function getGitHubUser(username) {
+  /* TODO */
+}
+
+/**
+ * Retrieves programming languages for the specified GitHub repository.
+ * @param {string} repoName
+ */
+function getGitHubRepoLangs(repoName) {
+  /* TODO */
+}
+
+/**
+ * Retrieves topics for the specified GitHub repository.
+ * @param {string} repoName
+ */
+function getGitHubRepoTopics(repoName) {
+  /* TODO */
 }
 
 module.exports = db;
