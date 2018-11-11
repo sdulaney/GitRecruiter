@@ -1,0 +1,38 @@
+<div>
+    <h2 class="page-header">Add a Job</h2>
+    <form method="POST" action="/jobs/add">
+        <div class="form-group">
+            <label>Position</label>
+            <input type="text" class="form-control" id="addjob_position" name="position" placeholder="Position" />
+        </div>
+        <div class="form-group">
+            <label>Company</label>
+            <input type="text" class="form-control" id="addjob_company" name="company" placeholder="Company" />
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <input type="text" class="form-control" id="addjob_location" name="location" placeholder="Location" />
+        </div>
+        <div class="form-group">
+            <label>Language</label>
+            <input type="text" class="form-control" id="addjob_language" name="language" placeholder="Language" />
+        </div>
+        <div class="form-group">
+            <label>Job ID</label>
+            <input type="text" class="form-control" id="addjob_job_id" name="job_id" placeholder="Job ID" />
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Add Job</button>
+        <input type="button" class="btn btn-primary" value="Clear" onClick="clearForm()" />
+    </form>
+</div>
+
+<script type="text/javascript">
+    function clearForm() {
+        document.getElementById("addjob_position").value = "";
+        document.getElementById("addjob_company").value = "";
+        document.getElementById("addjob_location").value = "";
+        document.getElementById("addjob_language").value = "";
+        document.getElementById("addjob_job_id").value = "";
+    }
+</script>
