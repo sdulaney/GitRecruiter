@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let models = require('../models');
 let bcrypt = require('bcryptjs');
+let db = require('../models/index.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

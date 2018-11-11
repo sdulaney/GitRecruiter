@@ -1,10 +1,11 @@
 let express = require('express');
 let router = express.Router();
 let models = require('../models');
+let db = require('../models/index.js');
 
 /* GET jobs listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+    res.send('respond with a resource');
 });
 
 router.post('/add', function(req, res, next) {
